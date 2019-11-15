@@ -11,7 +11,7 @@ import  {fetchWeather} from './redux/weather/weatherOperations';
 class App extends Component {
 
   componentDidMount() {
-    this.props.fetchWeather();
+    this.props.fetchWeather('London');
   }
   render() {
     return (
@@ -25,8 +25,11 @@ class App extends Component {
 const mapDispatchToProps = {
   fetchWeather: fetchWeather,
 };
+const mapStateToProps =({weather})=> ({
+  weather: weather,
+})
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(App);
