@@ -1,12 +1,13 @@
 import axios from 'axios';
 
 import { fetchError, fetchStart, fetchSuccess} from './weatherActions';
+import { config } from '../../API/config';
 
 export const fetchWeather = (query) => dispatch => {
   dispatch(fetchStart());
 
   axios
-    .get(`http://api.openweathermap.org/data/2.5/weather?q=${query},uk&amp`)
+    .get(`${config.BASE_URI}/?q=${query}&appid=${config.KEY}`)
     .then(response => {
       dispatch(fetchSuccess(response.data));
     })
@@ -14,3 +15,5 @@ export const fetchWeather = (query) => dispatch => {
       dispatch(fetchError(error));
     });
 };
+
+

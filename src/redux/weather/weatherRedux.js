@@ -4,7 +4,7 @@ import { ActionType } from './weatherTypes';
 const itemsReducer = (state = [], { type, payload }) => {
   switch (type) {
     case ActionType.FETCH_SUCCESS:
-      return payload.items;
+      return payload.obj;
 
     default:
       return state;
