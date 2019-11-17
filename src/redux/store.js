@@ -7,7 +7,7 @@ import rootModule from '../redux/rootModule';
 
 const logger = createLogger();
 
-const middlewares = applyMiddleware(logger, thunk);
+const middlewares = applyMiddleware( thunk, logger);
 const enhancer = composeWithDevTools(middlewares);
 
 const store = createStore(rootModule, enhancer);

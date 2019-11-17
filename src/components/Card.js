@@ -5,15 +5,16 @@ import {RAIN_NAME, NAME_VALUES, CLOUDS_NAME, WIND_NAME } from '../utils/constant
 
 const handleValue = (property, name) => {
     if(!property){
-      return <i>No data for {name}</i>
+      return <p>No data for {name}</p>
     }
     return <p>{name}: {property} </p>
   }
 
-const Card =({ items }) => (
+const Card =({ items, degreeType }) => (
       <>
         <div className='container_card'>
-          <h1>  Weather in {items.name } {items.sys && items.sys.country } </h1>
+          <h1>  {items.name } {items.sys && items.sys.country } </h1>
+          <div> {handleValue(items.main && items.main.temp, NAME_VALUES.TEMP)} ( { degreeType} ) </div>
 
           <div className="container_item"> 
             {handleValue(items.main && items.main.humidity, NAME_VALUES.HUMIDITY)} % 
@@ -40,8 +41,6 @@ const Card =({ items }) => (
           <div className="container_item">  
               {handleValue(items.rain &&  Object.values(items.rain), RAIN_NAME.ONE_H)}     
           </div>
-
-          <p>Rain: { items.rain && items.rain.lenght > 0 ? items.rain && Object.values(items.rain): 'none'}  </p>
 
           <div className="container_item">  
               {handleValue(items.wind &&  items.wind.speed, WIND_NAME.WIND)}     

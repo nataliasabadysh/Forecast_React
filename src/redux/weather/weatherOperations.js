@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { fetchError, fetchStart, fetchSuccess} from './weatherActions';
+import { fetchError, fetchStart, fetchSuccess, fetchStartWithUnits, fetchSuccessWithUnits, fetchErrorWithUnits} from './weatherActions';
 import { config } from '../../API/config';
 
 export const fetchWeather = (query='London' ) => dispatch => {
@@ -15,6 +15,20 @@ export const fetchWeather = (query='London' ) => dispatch => {
       dispatch(fetchError(error));
     });
 };
+
+export  const fetchWeatherWitUnits = (query='London', units)  => dispatch => {
+  dispatch(fetchStartWithUnits());
+  axios
+    .get(
+      `${config.BASE_URI}/?q=${query}&appid=${config.KEY}&amp;units=${units}`) 
+    .then(response => {
+      dispatch(fetchSuccessWithUnits(response.data));
+    })
+    .catch(error => {
+      dispatch(fetchErrorWithUnits(error));
+    });
+
+}
 
 
 

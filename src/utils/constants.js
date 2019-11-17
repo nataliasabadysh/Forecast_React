@@ -1,3 +1,5 @@
+import shortid from 'shortid';
+
 export const options = [
     { value: 'London', label: 'London' },
     { value: 'Stockholm', label: 'Stockholm' },
@@ -21,3 +23,15 @@ export  const WIND_NAME = {
     WIND: 'Wind'
   }
   
+  export const DEGREE_TYPE = {
+    imperial: 'imperial',
+    metric: 'metric',
+
+    fahrenheit: "Fahrenheit",
+    celsius: "Celsius",
+    kelvin: "Kelvin"
+  }
+
+export const  CELSIUM_INPUT_ID = shortid.generate();
+export const FARENHEIT_INPUT_ID = shortid.generate();
+export const KELVIN_INPUT_ID = shortid.generate();
