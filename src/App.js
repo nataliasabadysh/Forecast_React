@@ -1,39 +1,8 @@
 // Core
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 // Components
-import Card from './components/WeatherViewCard'
-// Actions 
-import  {fetchWeather} from './redux/weather/weatherOperations';
+import WeatherViewCard from './components/WeatherViewCard'
 
+const App = () =>  <WeatherViewCard />
 
-
-class App extends Component {
-
-  componentDidMount() {
-    
-    this.props.fetchWeather('London');
-  }
-  
-  render() {
-    const {weather}= this.props;
-    return (
-      <div>
-        Hello World 
-        <Card weather={weather} />
-      </div>
-    );
-  }
-}
-
-const mapDispatchToProps = {
-  fetchWeather: fetchWeather,
-};
-const mapStateToProps =({ weather})=> ({
-  weather,
-})
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(App);
+export default App

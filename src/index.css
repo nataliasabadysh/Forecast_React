@@ -12,3 +12,21 @@ body {
 
   min-height: 100vh;
 }
+.container_card{
+  width: 800px;
+  box-shadow: 1px 1px 12px #b5b5b5;
+  padding: 30px;
+  margin: 0 auto;
+  background: rgba(237, 240, 93, 0.452);
+}
+
+.container_card h1{
+  text-align: center;
+}
+.container_card p{
+    font-size: 17px;
+    display: inline-block;
+}
+.container_item{
+  /* display: inline; */
+}
